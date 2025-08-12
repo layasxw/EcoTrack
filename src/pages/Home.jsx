@@ -121,31 +121,30 @@ export default function Home( { habits }) {
             <Grid item xs={12} md={6}>
               <Paper sx={{ p: 2 }}>
                 <Typography variant="h6">По категориям</Typography>
-                <Container width='100%' height={300}>
-                  <PieChart>
+                <div style={{ width: 300, height: 300, margin: '0 auto' }}>
+                  <PieChart width={300} height={300}>
                     <Pie data={pieDate} dataKey={'value'} fill="#ccc">
-                      {pieDate.map((_, index) => {
-                        <Cell key={index} fill={COLORS[index % COLORS.length]}></Cell>
-                      })}
+                      {pieDate.map((_, index) => (
+                        <Cell key={index} fill={COLORS[index % COLORS.length]}/>
+                      ))}
                     </Pie>
                   </PieChart>
-                </Container>
+                </div>
               </Paper>
             </Grid>
             
             <Grid item xs={12} md={6}>
               <Paper sx={{ p: 2 }}>
                 <Typography variant="h6">Динамика по дням</Typography>
-                <Container width='100%' height={300}>
-                  <LineChart data={lineData}>
-                      <CartesianGrid>
-                        <XAxis dataKey={'date'}/>
-                        <YAxis allowDecimals={false}/>
-                        <Tooltip/>
-                        <Line type='monotone' dataKey={'count'} stroke="#4caf50"></Line>
-                      </CartesianGrid>
+                <div style={{ width: 300, height: 300, margin: '0 auto' }}>
+                  <LineChart width={300} height={300} data={lineData}>
+                      <CartesianGrid />
+                      <XAxis dataKey="date" />
+                      <YAxis allowDecimals={false} />
+                      <Tooltip />
+                      <Line type="monotone" dataKey="count" stroke="#4caf50" />
                   </LineChart>
-                </Container>
+                </div>
               </Paper>
             </Grid>
         </Grid>
