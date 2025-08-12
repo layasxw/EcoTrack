@@ -1,0 +1,76 @@
+.navbar-btn {
+  background: transparent;
+  color: #3E3F29;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+}
+.navbar-btn:hover {
+  background: #EDA35A;
+  color: #fff;
+}
+
+body {
+  background: linear-gradient(135deg, #E1E9C9 0%, #FEE8D9 100%);
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #3E3F29;
+}
+
+.card {
+  background: #CADCAE;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(202, 220, 174, 0.15);
+  padding: 2em;
+  margin-bottom: 2em;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 4px 24px rgba(237, 163, 90, 0.15);
+}
+
+.read-the-docs {
+  color: #EDA35A;
+}
+
+
+button, .MuiButton-root {
+  background: #EDA35A !important;
+  color: #3E3F29 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(237, 163, 90, 0.08);
+  padding: 0.5em 1.5em !important;
+  border: none;
+  transition: background 0.2s;
+}
+button:hover, .MuiButton-root:hover {
+  background: #E1E9C9 !important;
+}
+
+/* NavBar button styles - must come after global button styles for higher specificity */
+.navbar-btn, .navbar-btn.MuiButton-root {
+  background: transparent !important;
+  color: #3E3F29 !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  transition: background 0.2s, color 0.2s;
+}
+.navbar-btn:hover, .navbar-btn.MuiButton-root:hover {
+  background: #EDA35A !important;
+  color: #fff !important;
+}
+
+input, .MuiInputBase-root {
+  background: #fff8f2;
+  border-radius: 8px;
+}
