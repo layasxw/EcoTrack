@@ -52,7 +52,7 @@ export default function AddHabit( {habits, setHabits}) {
         width: '100%',
         margin: '4rem 0 2rem 0',
       }}>
-        <Typography variant="h4" sx={{ fontWeight: 700, color: '#3E3F29', fontFamily: 'Montserrat, sans-serif', mb: 3, textAlign: 'center' }}>
+        <Typography variant="h4" sx={{ fontWeight: 700, color: '#EDA35A', fontFamily: 'Montserrat, sans-serif', mb: 3, textAlign: 'center' }}>
           Добавить экопривычку
         </Typography>
         <TextField 
@@ -61,7 +61,7 @@ export default function AddHabit( {habits, setHabits}) {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
           fullWidth
-          sx={{ mb: 2, background: '#E1E9C9', borderRadius: '8px' }}
+          sx={{ mb: 2, background: '#E1E9C9', borderRadius: '8px', fontFamily: 'Montserrat, sans-serif' }}
         >
           <MenuItem value='Сортировка мусора'>Сортировка мусора</MenuItem>
           <MenuItem value='Ходить пешком'>Ходить пешком</MenuItem>
@@ -75,12 +75,12 @@ export default function AddHabit( {habits, setHabits}) {
           value={description}
           placeholder="Комментарий"
           onChange={(e) => setDescription(e.target.value)}
-          sx={{ mb: 2, background: '#FEE8D9', borderRadius: '8px' }}
+          sx={{ mb: 2, background: '#FEE8D9', borderRadius: '8px', fontFamily: 'Montserrat, sans-serif' }}
         />
         {alertMessage &&
           <Alert severity={alertSeverity} sx={{ mb: 2 }}>{alertMessage}</Alert>
         }
-        <Button variant="contained" onClick={handleSubmit} sx={{ width: '100%', fontSize: '1.1rem', py: 1.5, fontWeight: 600, borderRadius: '12px', boxShadow: '0 2px 8px rgba(237, 163, 90, 0.10)', mb: 3 }}>
+        <Button variant="contained" onClick={handleSubmit} sx={{ width: '100%', fontSize: '1.1rem', py: 1.5, fontWeight: 600, borderRadius: '12px', boxShadow: '0 2px 8px rgba(237, 163, 90, 0.10)', mb: 3, fontFamily: 'Montserrat, sans-serif' }}>
           Сохранить привычку
         </Button>
       </div>

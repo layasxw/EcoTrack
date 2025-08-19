@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Container, Typography, Button } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export default function Motivation() {
+  const {t} = useTranslation(); 
   const quotes = [
     // Общая мотивация
     "Маленькие шаги ведут к большим переменам ",
@@ -54,12 +56,24 @@ export default function Motivation() {
   }, []);
   return(
     <>
-      <Container>
-        <Typography variant="h3">Мотивация</Typography>
-        <Typography>{goal.target}</Typography>
-        <Typography>Мотивация</Typography>
-        <Typography sx={{ mt: 1 }}>{currentQuote}</Typography>
-        <Button onClick={() => setCurrentQuote(quotes[Math.floor(Math.random() * quotes.length)])}>Новая цитата</Button>
+      <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '80vh', position: 'relative' }}>
+  <div className="card" style={{ maxWidth: '540px', textAlign: 'center', margin: '4rem auto 2rem auto' }}>
+          <Typography 
+            variant="h3" 
+            sx={{
+              textAlign: 'center',
+              color: '#EDA35A',
+              fontWeight: 700,
+              fontFamily: 'Montserrat, sans-serif',
+              mb: 3
+            }}
+          >
+            {t('motivation.title')}
+          </Typography>
+          <Typography sx={{ color: '#3E3F29', fontSize: '1.1rem', mb: 1, fontFamily: 'Montserrat, sans-serif' }}>{goal.target}</Typography>
+          <Typography sx={{ color: '#3E3F29', fontSize: '1.1rem', mb: 1, fontFamily: 'Montserrat, sans-serif' }}>{currentQuote}</Typography>
+          <Button onClick={() => setCurrentQuote(quotes[Math.floor(Math.random() * quotes.length)])} sx={{mt: 2, fontFamily: 'Montserrat, sans-serif', fontWeight: 600}}>{t('motivation.quoteBtn')}</Button>
+        </div>
       </Container>
     </>
   )

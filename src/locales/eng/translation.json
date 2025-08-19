@@ -1,0 +1,32 @@
+{
+    "home": {
+        "title": "Eco-habits every day",
+        "description": "An application where the user marks eco-friendly actions, reducing their carbon footprint and helping to save the planet",
+        "addBtn": "Add a habit\n",
+        "keepUpText": "Keep up!",
+        "startText": "Start with your first habit today!",
+        "total": "Total habits",
+        "weekly": "For the week",
+        "categories": "Categories",
+        "pieText": "By categories",
+        "lineText": "Dynamics by days"
+    },
+    "habits": {
+        "category": "Category",
+        "chooseBtn": "Choose category",
+        "deleteBtn": "Delete"
+    },
+    "news": {
+        "newsTitle": "News related to ecology"
+    },
+    "motivation": {
+        "title": "Motivation",
+        "quoteBtn": "New quote"
+    },
+    "navbar": {
+        "homePage": "Home",
+        "habitsPage": "Habits",
+        "newsPage": "News",
+        "motivPage": "Motivation"
+    }
+}

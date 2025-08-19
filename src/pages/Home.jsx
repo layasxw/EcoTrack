@@ -2,8 +2,13 @@ import { useEffect, useState } from "react";
 import { Typography, Button, Container, Paper, Grid } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, } from "recharts";
+import { useTranslation } from "react-i18next";
+
 export default function Home( { habits }) {
-    const COLORS = ['#4caf50', '#2196f3', '#ff9800', '#f44336'];
+  const {t} = useTranslation();  
+
+
+  const COLORS = ['#4caf50', '#2196f3', '#ff9800', '#f44336'];
     const navigate = useNavigate()
 
     const TIPS = [
@@ -56,26 +61,18 @@ export default function Home( { habits }) {
 
   return (
     <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '80vh', position: 'relative' }}>
-      <div style={{
-        background: '#CADCAE',
-        borderRadius: '24px',
-        boxShadow: '0 4px 32px rgba(202, 220, 174, 0.18)',
-        padding: '3rem 2rem',
-        maxWidth: '540px',
-        textAlign: 'center',
-        margin: '4rem auto 2rem auto',
-      }}>
-        <Typography variant="h3" sx={{ fontWeight: 700, color: '#3E3F29', fontFamily: 'Montserrat, sans-serif', mb: 2 }}>
+  <div className="card" style={{ maxWidth: '540px', textAlign: 'center', margin: '4rem auto 2rem auto', padding: '3rem 2rem' }}>
+        <Typography variant="h3" sx={{ fontWeight: 700, color: '#EDA35A', fontFamily: 'Montserrat, sans-serif', mb: 2 }}>
           EcoTrack
         </Typography>
-        <Typography variant="h5" sx={{ color: '#EDA35A', fontWeight: 600, fontFamily: 'Montserrat, sans-serif', mb: 2 }}>
-          Экопривычки каждый день
+        <Typography variant="h5" sx={{ color: '#3E3F29', fontWeight: 600, fontFamily: 'Montserrat, sans-serif', mb: 2 }}>
+          {t('home.title')}
         </Typography>
-        <Typography sx={{ color: '#3E3F29', fontSize: '1.1rem', mb: 4 }}>
-          Приложение, где пользователь отмечает экологичные действия, уменьшая свой углеродный след и способствуя спасению планеты
+        <Typography sx={{ color: '#3E3F29', fontSize: '1.1rem', mb: 4, fontFamily: 'Montserrat, sans-serif' }}>
+          {t('home.description')}
         </Typography>
-        <Button onClick={toAddHabit} sx={{ fontSize: '1.1rem', px: 4, py: 1.5, fontWeight: 600, borderRadius: '12px', boxShadow: '0 2px 8px rgba(237, 163, 90, 0.10)' }}>
-          Добавить привычку
+        <Button onClick={toAddHabit} sx={{ fontSize: '1.1rem', px: 4, py: 1.5, fontWeight: 600, borderRadius: '12px', boxShadow: '0 2px 8px rgba(237, 163, 90, 0.10)', fontFamily: 'Montserrat, sans-serif' }}>
+          {t('home.addBtn')}
         </Button>
       </div>
       <div style={{ position: 'fixed', top: '6rem', right: '2rem', zIndex: 1000 }}>
@@ -91,36 +88,36 @@ export default function Home( { habits }) {
           }}>{tip}</Paper>
       </div>
       <div>
-        <Typography variant="h6">
+        <Typography variant="h6" sx={{ fontFamily: 'Montserrat, sans-serif', color: '#3E3F29', fontWeight: 600 }}>
           {habits.length > 0
-          ? "Продолжай в том же духе!"
-          : "Начни с первой привычки уже сегодня!"}
+            ? t('home.keepUpText')
+            : t('home.startText')}
         </Typography>
 
         <Grid container spacing={2} sx={{ mb: 3 }}>
             <Grid item xs={4}>
               <Paper sx={{ p: 2 }}>
-                <Typography variant="h6">Всего привычек</Typography>
-                <Typography variant="h5">{total}</Typography>
+                <Typography variant="h6" sx={{ fontFamily: 'Montserrat, sans-serif', color: '#EDA35A', fontWeight: 600 }}>{t('home.total')}</Typography>
+                <Typography variant="h5" sx={{ fontFamily: 'Montserrat, sans-serif', color: '#3E3F29', fontWeight: 700 }}>{total}</Typography>
               </Paper>
             </Grid>
             <Grid item xs={4}>
               <Paper sx={{ p: 2 }}>
-                <Typography variant="h6">За неделю</Typography>
-                <Typography variant="h5">{lastWeekCount}</Typography>
+                <Typography variant="h6" sx={{ fontFamily: 'Montserrat, sans-serif', color: '#EDA35A', fontWeight: 600 }}>{t('home.weekly')}</Typography>
+                <Typography variant="h5" sx={{ fontFamily: 'Montserrat, sans-serif', color: '#3E3F29', fontWeight: 700 }}>{lastWeekCount}</Typography>
               </Paper>
             </Grid>
             <Grid item xs={4}>
               <Paper sx={{ p: 2 }}>
-                <Typography variant="h6">Категорий</Typography>
-                <Typography variant="h5">{uniqueCategories}</Typography>
+                <Typography variant="h6" sx={{ fontFamily: 'Montserrat, sans-serif', color: '#EDA35A', fontWeight: 600 }}>{t('home.categories')}</Typography>
+                <Typography variant="h5" sx={{ fontFamily: 'Montserrat, sans-serif', color: '#3E3F29', fontWeight: 700 }}>{uniqueCategories}</Typography>
               </Paper>
             </Grid>
         </Grid>
         <Grid container spacing={2} sx={{ mb: 3 }}>
             <Grid item xs={12} md={6}>
               <Paper sx={{ p: 2 }}>
-                <Typography variant="h6">По категориям</Typography>
+                <Typography variant="h6" sx={{ fontFamily: 'Montserrat, sans-serif', color: '#EDA35A', fontWeight: 600 }}>{t('home.pieText')}</Typography>
                 <div style={{ width: 300, height: 300, margin: '0 auto' }}>
                   <PieChart width={300} height={300}>
                     <Pie data={pieDate} dataKey={'value'} fill="#ccc">
@@ -135,7 +132,7 @@ export default function Home( { habits }) {
             
             <Grid item xs={12} md={6}>
               <Paper sx={{ p: 2 }}>
-                <Typography variant="h6">Динамика по дням</Typography>
+                <Typography variant="h6" sx={{ fontFamily: 'Montserrat, sans-serif', color: '#EDA35A', fontWeight: 600 }}>{t('home.lineText')}</Typography>
                 <div style={{ width: 300, height: 300, margin: '0 auto' }}>
                   <LineChart width={300} height={300} data={lineData}>
                       <CartesianGrid />
